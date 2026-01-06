@@ -1,7 +1,19 @@
 Project Overview
 -------------------------------------------
 
-This project focuses on building and evaluating machine learning models to analyze and predict outcomes using a structured dataset. The workflow includes data preprocessing, model training, and performance evaluation using standard metrics to ensure reliable and interpretable results.
+Traditional models rely on either:
+
+Satellite imagery (CNN-based) or
+
+Tabular geospatial features (ML-based)
+
+This project fuses both modalities to capture:
+
+Spatial patterns from images
+
+Structured numerical insights from metadata (latitude, longitude, etc.)
+
+📈 Result: Improved predictive performance compared to unimodal models.
 
 📂 Dataset Used
 --------------------------------------
@@ -16,34 +28,33 @@ Handling missing values
 
 Feature scaling/normalization
 
-Encoding categorical variables (if applicable)
-
 Train–test split for evaluation
-
-(Update this section with dataset name, size, and source if required.)
 
 🧠 Approach and Models Used
 --------------------------------------------------------------------------------
 
-Data Preprocessing
+Multimodal Learning Pipeline
+Satellite Images (.tif) ──► CNN Backbone ──► Image Embedding
+                                              │
+Tabular Features (CSV) ──► MLP / Dense ──► Tabular Embedding
+                                              │
+                                Feature Fusion (Concatenation)
+                                              │
+                               Fully Connected Regression Head
+                                              │
+                                     Continuous Prediction
 
-Cleaned and transformed raw data for model compatibility
 
-Removed noise and irrelevant features where necessary
 
-Modeling Approach
-
-Implemented multiple machine learning models to compare performance
-
-Models used may include:
-
-Gradient Boosting / XGBoost (if applicable)
-
-Training Strategy
-
-Models were trained on the training dataset
-
-Hyperparameter tuning was performed to improve performance
+Process Flow
+----------------------------------------------------------------------------------------
+1. Data Collection
+2. Image Preprocessing (Resize, Normalize)
+3. Tabular Data Cleaning & Scaling
+4. CNN-based Image Feature Extraction
+5. Feature Fusion (Image + Tabular)
+6. Model Training
+7. Model Evaluation (MSE, R²)
 
 📈 Evaluation Metrics
 ----------------------------------------------------------------------------------------------------
